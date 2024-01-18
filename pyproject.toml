@@ -1,0 +1,65 @@
+[tool.pylsp-mypy]
+enabled = true
+live_mode = true
+strict = false
+
+[tool.ruff] #https://github.com/astral-sh/ruff/blob/main/docs/configuration.md
+line-length = 100
+
+# Ignoring some shit:
+ignore = ["E501"]
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Common Excludes
+exclude = [
+  ".bzr",
+  ".direnv",
+  ".eggs",
+  ".git",
+  ".git-rewrite",
+  ".hg",
+  ".mypy_cache",
+  ".nox",
+  ".pants.d",
+  ".pytype",
+  ".ruff_cache",
+  ".svn",
+  ".tox",
+  ".venv",
+  "__pypackages__",
+  "_build",
+  "buck-out",
+  "build",
+  "dist",
+  "node_modules",
+  "venv",
+]
+
+
+[tool.rope] # https://rope.readthedocs.io/en/latest/configuration.html#pyproject-toml
+split_imports = true
+pull_imports_to_top = true
+
+[tool.poetry]
+name = "sd-server"
+version = "0.1.0"
+description = "Simple server to make SDXL available on my home machine via tailscale"
+authors = ["jer, <alphastrata@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.109.0"
+uvicorn = "^0.26.0"
+diffusers = "^0.25.1"
+torch = "^2.1.2"
+transformers = "^4.36.2"
+accelerate = "^0.26.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
